@@ -58,8 +58,8 @@ class Cleric(Player):
     deff=3
     att=25
     mp=4
-#Lost is the default class, gotta make the player something!
-class Lost(Player):
+#Starter is the default class, gotta make the player something!
+class Starter(Player):
     hp=55
     agi=20
     deff=2

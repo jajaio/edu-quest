@@ -2,7 +2,7 @@
 import time as t
 import colors as c
 import classes as cl
-import town
+import hub
 import load
 import save
 import os
@@ -44,9 +44,9 @@ def newOrLoad():
     if newGameAsk=="1":
         confirmNewFile=input(c.yellow+"Are you sure? Any old save file will be deleted."+c.reset+" (Y/N) >>>"+c.violet).strip().lower()
         if confirmNewFile=="y":
-            os.system('rm player.json')
-            os.system('touch player.json')
-            cl.Player=cl.Lost
+            os.system('rm player.json') #Deletes old save file
+            os.system('touch player.json') #Creates new file
+            cl.Player=cl.Starter #Sets player to be starting class
             save.save_game()
             nameAsk()
         elif confirmNewFile=="n":
@@ -80,7 +80,7 @@ def intro():
     input("After this intro, you will head to your hub area. [Press enter]")
     save.save_game()
     load.load_game()
-    town.hub()
+    hub.hub()
 
 def nameAsk():
     nameQuestion=input(c.yellow+"What is your name? "+c.reset+ ">>>"+c.violet).strip().title()
