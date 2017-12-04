@@ -1,25 +1,25 @@
 import colors as c
-author="jajaio"
-
-'''TODO
-Make advanced player classes
-More monsters?
-'''
-#Yeah, each class should have its own file. But this late in development, I'd rather not spend an hour tweaking all of the code.
+import anim
+"Author: Jackson Martin"
 
 class Thing():
-	hp=None #Health
-	agi=None #Agility
-	deff=None #Defense
-	att=None #Attack
-	mp=None #Magic Power (Ammount of times you can heal)
+    hp=None #Health
+    agi=None #Agility
+    deff=None #Defense
+    att=None #Attack
+    mp=None #Magic Power (Ammount of times you can heal)
+    name=None #Name of the class
+    attanim=None
+    mpanim=None
 
 class Player(Thing):
-    gold=0
-    name=None
+    gold=0 #The Player's currency
+    attanim=anim.playerattanim()
+    mpanim=anim.playermpanim()
 
 class Foe(Thing):
-    mname="Test mob name"
+    pass
+
 #Advanced Classes
 class Assassin(Player):
     hp=75
@@ -68,7 +68,7 @@ class Lost(Player):
 
 #Basic Monster Classes.
 class Slime(Foe):
-    mname="Slime"
+    name="Slime"
     hp=20
     agi=15
     att=10
@@ -76,28 +76,28 @@ class Slime(Foe):
     mp=0
 
 class Bandit(Foe):
-    mname="Bandit"
+    name="Bandit"
     hp=60
     agi=40
     att=20
     deff=2
     mp=1
 class Zombie(Foe):
-    mname="Zombie"
+    name="Zombie"
     hp=55
     agi=10
     att=15
     deff=1
     mp=0
 class Skeleton(Foe):
-    mname="Skeleton"
+    name="Skeleton"
     hp=40
     agi=50
     att=25
     deff=2
     mp=1
 class Goblin(Foe):
-    mname="Goblin"
+    name="Goblin"
     hp=75
     agi=20
     att=15
@@ -105,7 +105,7 @@ class Goblin(Foe):
     deff=1
 #The dragon, AKA the final boss.
 class Dragon(Foe):
-    mname="Dragon"
+    name="Dragon"
     hp=200
     agi=0
     att=25
@@ -190,10 +190,12 @@ def show_player():
     print(yext.format(p=Player()))
 
 if __name__=='__main__':
-    show_rogue()
+    Player.attanim
+    Player.mpanim
+    '''show_rogue()
     show_sellsword()
     show_cleric()
     show_assassin()
     show_wizard()
     show_paladin()
-    show_player()
+    show_player()'''

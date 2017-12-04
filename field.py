@@ -14,7 +14,7 @@ def field():
     print(c.clear)
     print(c.yellow+"You are in a grassy field.")
     t.sleep(1)
-    f=input(c.yellow+"Do you want to look for monsters? Or go back to the town? (1), (2)"+c.reset+" >>>"+c.violet)
+    f=input(c.yellow+"Do you want to look for monsters, or return to the town? (1), (2)"+c.reset+" >>>"+c.violet)
     if f=="1":
         print(c.yellow+"You decide to look around.")
         t.sleep(1.5)
@@ -35,7 +35,7 @@ def field():
         b.fight()
         field()
     elif f=="2":
-        print(c.yellow+"You decide to go back to the town...")
+        print(c.yellow+"You decide to go back to the hub...")
         t.sleep(1.25)
         town.hub()
     else:

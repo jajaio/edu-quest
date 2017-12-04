@@ -67,6 +67,7 @@ foeatt2='''
          |                                                                                                                              
         \\ \\  
 '''
+
 def foeattanim():
     for count in range(2):
         print(c.clear)
