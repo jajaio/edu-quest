@@ -4,7 +4,7 @@ import random
 import classes as cl
 import colors as c
 import time as t
-import town
+import hub
 def random_monster():
     monsters=[cl.Slime, cl.Bandit, cl.Zombie, cl.Skeleton, cl.Goblin]
     monster=random.choice(monsters)
@@ -37,7 +37,7 @@ def field():
     elif f=="2":
         print(c.yellow+"You decide to go back to the hub...")
         t.sleep(1.25)
-        town.hub()
+        hub.hub()
     else:
         print("I don't know what you mean....")
         t.sleep(1)

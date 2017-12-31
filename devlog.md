@@ -21,4 +21,15 @@ of Alphaquest to limit any gameplay. I also plan to
 rework a lot of my old freshman year code to be much
 cleaner and more productive. More on that later.
 
+# Dec 31st, 2017
+
+Working on this because I'm jacked on caffine and have
+nothing better to do. For some reason when the game starts
+it runs the attack and heal animation, and I found that 
+it's referencing the attanim=playerattanim() or whatever
+it's called in the classes.py file. Why is this happening?
+I'm just defining the var as a function, so why does it 
+run within the class? I'll ask Cole about it when 
+school starts back up. 
+
 
