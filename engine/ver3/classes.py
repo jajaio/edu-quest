@@ -9,6 +9,7 @@ class Thing():
 
 class Player(Thing):
     gold = 0 
+    name = None
 
 class Enemy(Thing):
     pass

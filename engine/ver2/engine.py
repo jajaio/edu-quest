@@ -19,6 +19,18 @@ def fight():
         hpScan()
         playerMove()
 
+def agiScan():
+    if player.agi >= enemy.agi #check to see if the player has more agility than the enemy:
+        playerMove() #if so, player moves first
+        hpScan() #check to make sure the attack didn't kill the enemy
+        enemyMove() #enemy moves
+        hpScan() #checks to make sure the attack didn't kill the player
+    elif player.agi < enemy.agi: #if the enemy has more agility than the player, then the enemy will attack first 
+        enemyMove()
+        hpScan()
+        playerMove()
+        hpScan()
+
 def playerAttack():
     print("Player attacks!")
     enemy.hp -= player.dmg
@@ -46,16 +58,12 @@ def enemyHeal():
         enemy.hp += enemy.mp 
         enemy.mpu -= 1
 
-def playerMove():        
+def fight():        
     print("Player HP: " + str(player.hp) + " Player MP: " + str(player.mpu))
     print("Enemy HP: " + str(enemy.hp) + " Enemy MP: " + str(enemy.mpu))
     prompt = input("Attack(1), Heal(2) >>>").strip()
-    if prompt == "1":
-        playerAttack()
-    elif prompt == "2": #New option to heal
-        playerHeal()
-    else:
-        print("You were confused!")
+    global prompt
+        
 
 def enemyMove(): #Some AI has been added this time
     move = random.randint(1, 2) #randomly chooses 1 or 2

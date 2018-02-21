@@ -5,24 +5,38 @@ from time import sleep as s
 
 def hpScan():
     if player.hp < 1:
-        print("You Died!")
+        print(c.yellow + "You Died!")
+        print(c.reset)
+        s(1)
         exit() #link to function later
     elif enemy.hp <1:
-        print("You Win!")
+        print(c.yellow + "You Win!")
+        print(c.reset)
+        s(1)
         exit()
 
-def fight():
+def agiScan():
     if player.agi >= enemy.agi:
         playerMove()
         hpScan()
         enemyMove()
-    else:
+        hpScan()
+    elif player.agi < enemy.agi:
         enemyMove()
         hpScan()
         playerMove()
+        hpScan()
+
+def playerMove():
+    if prompt == "1":
+        playerAttack()
+    elif prompt == "2":
+        playerHeal()
+    else:
+        print(c.yellow + "You were confused!")
+        s(1)
 
 def playerAttack():
-    print(c.clear)
     print(c.blue + "Player attacks!")
     s(1)
     enemy.hp -= player.dmg
@@ -30,15 +44,16 @@ def playerAttack():
     
 def playerHeal():
     if player.mpu < 1:
-        print("You are out of Magic!")
+        print(c.yellow + "You are out of Magic!")
+        s(1)
         playerAttack()
     else:
-        print("Player heals " + str(player.mp) + "HP!")
+        print(c.blue + "Player heals " + str(player.mp) + "HP!")
+        s(1)
         player.hp += player.mp
         player.mpu -= 1
 
 def enemyAttack():
-    print(c.clear)
     print(c.red + "Enemy atttacks!")
     s(1)
     player.hp -= enemy.dmg
@@ -47,24 +62,19 @@ def enemyAttack():
 def enemyHeal():
     if enemy.mpu < 1:
         enemyAttack() 
-    else:
-        
-        print("Enemy heals " + str(enemy.hp) + " HP!")
+    else: 
+        print(c.red + "Enemy heals " + str(enemy.hp) + " HP!")
+        s(1)
         enemy.hp += enemy.mp 
         enemy.mpu -= 1
 
-def playerMove():        
-    print(c.blue + "Player HP: " + str(player.hp) + " Player MP: " + str(player.mpu))
-    print(c.red + "Enemy HP: " + str(enemy.hp) + " Enemy MP: " + str(enemy.mpu))
+def fight():        
+    print(c.clear)
+    print(c.blue + player.name + " HP: " + str(player.hp) + " " + player.name + " MP: " + str(player.mpu))
+    print(c.red + enemy.name + " HP: " + str(enemy.hp) + " " + enemy.name + " MP: " + str(enemy.mpu))
     prompt = input(c.yellow + "Attack(1), Heal(2) " + c.base2 + ">>>" + c.magenta).strip()
-    if prompt == "1":
-        playerAttack()
-    elif prompt == "2":
-        playerHeal()
-    else:
-        print("You were confused!")
-        s(1)
-        print(c.clear)
+    global prompt
+    agiScan()
 
 def enemyMove():
     move = randint(1, 2)
@@ -83,4 +93,5 @@ if __name__ == "__main__":
     cl.Enemy = cl.Slime
     player = cl.Player()
     enemy = cl.Enemy()
+    player.name = "Jon Appleseed"
     run()
