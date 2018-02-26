@@ -12,6 +12,7 @@ def fight(): #func for organizing the fight
         playerMove()
         hpScan()
         enemyMove()
+        hpScan()
 
 def playerAttack(): #player's attack move
     print("Player attacks!")

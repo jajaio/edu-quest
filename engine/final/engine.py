@@ -1,23 +1,26 @@
 import classes as cl
 from random import randint
-import colors as c #imports colors mod as var c
-from time import sleep as s #imports sleep function from time as var s
+import colors as c 
+from time import sleep as s 
 
 def hpScan():
     if player.hp < 1:
         print(c.yellow + "You Died!")
-        print(c.reset) #resets color so it doesn't bleed
-        s(1) #sleeps for one second
-        exit() #link to function later
+        print(c.reset)
+        s(1) 
+        #link to func
     elif enemy.hp <1:
-        print(c.yellow + "You Win!")  #prints in yellow
+        print(c.yellow + "You Win!")
         s(1)
-        goldAdd = randint(1, 20) #random int between 1 and 20
-        player.gold += goldAdd #adds the earned gold to the player's gold stat
+        goldAdd = randint(1, 20) 
+        player.gold += goldAdd 
         print("You got " + str(goldAdd) + " gold!")
+        s(1)
+        #save
+        input("[Game Saved - Press enter to continue]")
         print(c.reset)
         s(1)
-        exit()
+        #link to func
 
 def agiScan():
     if player.agi >= enemy.agi:
@@ -74,8 +77,8 @@ def enemyHeal():
 
 def fight():        
     print(c.clear)
-    print(c.blue + player.name + " HP: " + str(player.hp) + " " + player.name + " MP: " + str(player.mpu)) #player's color theme is blue
-    print(c.red + enemy.name + " HP: " + str(enemy.hp) + " " + enemy.name + " MP: " + str(enemy.mpu)) #enemy's is red
+    print(c.blue + player.name + " HP: " + str(player.hp) + " " + player.name + " MP: " + str(player.mpu)) 
+    print(c.red + enemy.name + " HP: " + str(enemy.hp) + " " + enemy.name + " MP: " + str(enemy.mpu))
     global prompt 
     prompt = input(c.yellow + "Attack(1), Heal(2) " + c.base2 + ">>>" + c.magenta).strip()
     agiScan()
@@ -93,9 +96,8 @@ def run():
         fight()
 
 if __name__ == "__main__":
-    cl.Player = cl.DefaultPlayer
+    #load
     cl.Enemy = cl.Slime
     player = cl.Player()
     enemy = cl.Enemy()
-    player.name = "Jon Appleseed" #if player doesn't have a name, make it Jon Appleseed.
     run()

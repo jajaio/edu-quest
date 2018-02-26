@@ -9,18 +9,9 @@ def hpScan():
         print("You Win!")
         exit()
 
-def fight():
-    if player.agi >= enemy.agi: #check to see if player has more agility than the enemy
-        playerMove() #if so, player moves first
-        hpScan() #check to make sure the attack didn't kill the enemy
-        enemyMove() #enemy moves
-    else: #if the player has lower agility, then it is only possible for the enemy to attack first
-        enemyMove()
-        hpScan()
-        playerMove()
 
 def agiScan():
-    if player.agi >= enemy.agi #check to see if the player has more agility than the enemy:
+    if player.agi >= enemy.agi: #check to see if the player has more agility than the enemy
         playerMove() #if so, player moves first
         hpScan() #check to make sure the attack didn't kill the enemy
         enemyMove() #enemy moves
@@ -31,6 +22,14 @@ def agiScan():
         playerMove()
         hpScan()
 
+def playerMove():
+    if prompt == "1":
+        playerAttack()
+    elif prompt == "2":
+        playerHeal()
+    else:
+        print("You were confused!")
+    
 def playerAttack():
     print("Player attacks!")
     enemy.hp -= player.dmg
@@ -41,7 +40,7 @@ def playerHeal():
         print("You are out of Magic!")
         playerAttack()
     else:
-        print("Player heals " + str(player.mp) + "HP!")
+        print("Player heals " + str(player.mp) + " HP!")
         player.hp += player.mp #player gains the amount of health that it's  
         player.mpu -= 1 #magic power usage does down by one
 
@@ -61,9 +60,9 @@ def enemyHeal():
 def fight():        
     print("Player HP: " + str(player.hp) + " Player MP: " + str(player.mpu))
     print("Enemy HP: " + str(enemy.hp) + " Enemy MP: " + str(enemy.mpu))
-    prompt = input("Attack(1), Heal(2) >>>").strip()
     global prompt
-        
+    prompt = input("Attack(1), Heal(2) >>>").strip()
+    agiScan()  
 
 def enemyMove(): #Some AI has been added this time
     move = random.randint(1, 2) #randomly chooses 1 or 2
