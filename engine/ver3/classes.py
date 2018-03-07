@@ -29,4 +29,3 @@ class Slime(Enemy):
     dfc = 1
     mp = 3
     mpu = 1
-

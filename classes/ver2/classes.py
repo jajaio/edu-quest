@@ -11,7 +11,7 @@ class Player(Thing):
     gold = 0 
 
 class Enemy(Thing):
-    pass
+    reward = None
 
 class DefaultPlayer(Player): #Stats that the player is set to have at the start of the game
     #default player does not have a defined name stat because it is defined by the player at the beginning of the game
@@ -28,6 +28,6 @@ class Slime(Enemy):
     dmg = 3
     agi = 5
     dfc = 1
-    mp = 3
+    mp 
     mpu = 1
-
+    reward = 10
