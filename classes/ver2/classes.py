@@ -22,6 +22,19 @@ class DefaultPlayer(Player): #Stats that the player is set to have at the start 
     mp = 1
     mpu = 1
 
+class Rouge():
+    hp = 15
+    dmg = 8
+    agi = 30
+    dfc = 3
+    mp = 3
+
+class Warrior():
+    pass
+
+class Mage():
+    pass
+
 class Slime(Enemy):
     name = "Slime"
     hp = 6
@@ -31,3 +44,4 @@ class Slime(Enemy):
     mp 
     mpu = 1
     reward = 10
+
