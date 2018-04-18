@@ -3,7 +3,7 @@ import classes as cl
 def loadGame():
     with open("player.json", "r") as pfile: #loads player.json file, and r reads it.
         j=json.load(pfile)
-        cl.Player.hp = j["hp"]
+        cl.Player.hp = j["hp"] #assigns each json var to a python var
         cl.Player.agi = j["agi"]
         cl.Player.dfc = j["dfc"]
         cl.Player.dmg = j["dmg"]

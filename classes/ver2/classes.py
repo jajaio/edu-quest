@@ -22,17 +22,36 @@ class DefaultPlayer(Player): #Stats that the player is set to have at the start 
     mp = 1
     mpu = 1
 
-class Rouge():
+class Rogue():
     hp = 15
     dmg = 8
-    agi = 30
+    agi = 25
     dfc = 3
     mp = 3
-
+    mpu = 2
 class Warrior():
-    pass
+    hp = 25
+    dmg = 10
+    agi = 5
+    dfc = 75
+    mp = 3
+    mpu = 1
 
 class Mage():
+    hp = 15
+    dmg = 8
+    agi = 15
+    dfc = 2
+    mp = 6
+    mpu = 3
+
+class MasterAssassin():
+    pass
+
+class Knight():
+    pass
+
+class Wizard
     pass
 
 class Slime(Enemy):
