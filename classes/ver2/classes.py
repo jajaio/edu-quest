@@ -33,7 +33,7 @@ class Warrior():
     hp = 25
     dmg = 10
     agi = 5
-    dfc = 75
+    dfc = 7
     mp = 3
     mpu = 1
 
@@ -45,8 +45,13 @@ class Mage():
     mp = 6
     mpu = 3
 
-class MasterAssassin():
-    pass
+class Assassin():
+    hp = 25
+    dmg = 10
+    agi = 100
+    dfc = 5
+    mp = 5
+    mpu = 3
 
 class Knight():
     pass
