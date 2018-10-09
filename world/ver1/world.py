@@ -4,7 +4,6 @@ from time import sleep as s
 import colors as c
 
 
-
 def randomMonster():
     enemies = [cl.Slime, cl.Skeleton]
     enemy = choice(enemies)
@@ -14,8 +13,18 @@ def world():
     print(c.clear)
     print(c.yellow + "You enter the open world.")
     s(1)
-    prompt = input("Do you want to fight monsters? Or head back to town?" + c.white + " >>>" + c.magenta)
-    
+    while True:
+        prompt = input("Do you want to fight monsters?(1) Or head back to town?(2)" + c.base2 + " >>>" + c.magenta).strip()
+        if prompt == "1":
+            print("You decide to fight monsters.")
+            print("You found a...")
+            randomMonster()
+            print(enemy.name + "!")
+        elif prompt == "2":
+            pass
+        else:
+            print("I don't understand... please answer with a 1 or a 2.")
+            input("[Press enter to continue]")
 
 if __name__ == "__main__":
-    print(c.yellow + "yuh")
+    world()
