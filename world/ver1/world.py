@@ -23,6 +23,7 @@ def world():
         elif prompt == "2":
             pass
         else:
+            print(c.yellow)
             print("I don't understand... please answer with a 1 or a 2.")
             input("[Press enter to continue]")
 

@@ -8,10 +8,10 @@ class Thing():
     mpu = None #Magic Power Usage(How many times you can heal
 
 class Player(Thing):
-    gold = 0 
+    gold = 0 #Enemy does not need gold
 
 class Enemy(Thing):
-    reward = None
+    reward = None #Player does not need to drop gold
 
 class DefaultPlayer(Player): #Stats that the player is set to have at the start of the game
     #default player does not have a defined name stat because it is defined by the player at the beginning of the game
@@ -29,6 +29,7 @@ class Rogue():
     dfc = 3
     mp = 3
     mpu = 2
+
 class Warrior():
     hp = 25
     dmg = 10
@@ -56,7 +57,7 @@ class Assassin():
 class Knight():
     pass
 
-class Wizard
+class Wizard():
     pass
 
 class Slime(Enemy):
@@ -65,7 +66,21 @@ class Slime(Enemy):
     dmg = 3
     agi = 5
     dfc = 1
-    mp 
+    mp  = 2 
     mpu = 1
     reward = 10
 
+def displayStats(input_character):
+    stats = """
+    Name: {p.name}
+    Health Points: {p.hp}
+    Damage: {p.dmg}
+    Agility: {p.agi}
+    Defense: {p.dfc}
+    Magic Power: {p.mp}
+    Magic Power Usage: {p.mpu}
+    """
+    print(stats.format(p = input_character))
+
+if __name__ == "__main__":
+    displayStats(Slime)
